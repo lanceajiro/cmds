@@ -29,9 +29,11 @@ async function readCommandFiles(cmdFolderPath) {
 
 async function cmd(event, api) {
   const cmdFolderPath = path.join(__dirname, '.');
-  const input = event.body.toLowerCase();
-  
-  if (input.includes('-all')) {
+  const userMessage = event.body.toLowerCase().trim();
+  let showAll = false;
+
+  if (userMessage.includes('-all')) {
+    showAll = true; // Removed "let" to fix variable shadowing
     const commandList = await readCommandFiles(cmdFolderPath);
     const senderName = await fetchUserFirstName(api, event.senderID);
 
@@ -46,7 +48,7 @@ async function cmd(event, api) {
       'To see the command information, type commandname -help',
     ];
     api.sendMessage(allCommandsOutput.join('\n'), event.threadID);
-    
+
     return; // Exit the function early to prevent default list execution
   }
 
@@ -87,4 +89,3 @@ async function cmd(event, api) {
 }
 
 module.exports = cmd;
-  
