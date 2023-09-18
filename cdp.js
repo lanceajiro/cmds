@@ -16,8 +16,9 @@ async function cdp(event, api) {
   }
 
   const apiEndpoints = [
-    "https://erdwpe-api.herokuapp.com/api/randomgambar/couplepp",
-    "https://api.zahwazein.xyz/randomanime/couples?apikey=zenzkey_4f308b315814"
+    "https://milanbhandari.imageapi.repl.co/dp?apikey=xyzmilan",
+    "https://tanjiro-api.onrender.com/cdp?api_key=tanjiro",
+    "https://erdwpe-api.herokuapp.com/api/randomgambar/couplepp"
   ];
 
   try {
